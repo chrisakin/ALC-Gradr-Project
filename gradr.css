@@ -62,11 +62,47 @@ button[data-pay-btn]{
      bottom: 20px; 
     } 
      
-[data-cart-info], [data-credit-card] {
+[data-cart-info], 
+[data-credit-card] {
      transform: scale(0.78); 
      margin-left: -3.4em; 
     } 
      
-[data-cc-info] input:focus, [data-cc-digits] input:focus {
+[data-cc-info] input:focus, 
+[data-cc-digits] input:focus {
      outline: none;
-    }    
+    }  
+
+.mdc-card__primary-action, 
+.mdc-card__primary-action:hover { 
+     cursor: auto;
+     padding: 20px; 
+     min-height: inherit;
+    }
+    
+[data-credit-card] [data-card-type] { 
+    transition: width 1.5s; 
+    margin-left: calc(100% - 130px); 
+    } 
+ 
+[data-credit-card].is-visa { 
+    background: linear-gradient(135deg, #622774 0%, #c53364 100%); 
+    } 
+     
+[data-credit-card].is-mastercard { 
+    background: linear-gradient(135deg, #65799b 0%, #5e2563 100%); 
+    } 
+     
+.is-visa [data-card-type], 
+.is-mastercard [data-card-type] { 
+    width: auto; 
+    } 
+     
+input.is-invalid, 
+.is-invalid input { 
+    text-decoration: line-through; 
+    } 
+     
+::placeholder { 
+    color: #fff;
+}
