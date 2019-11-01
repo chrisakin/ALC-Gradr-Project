@@ -10,7 +10,7 @@ div[data-cart-info] span {
     } 
      
 span.material-icons  {
-         font-size: 150px; 
+    font-size: 150px; 
     } 
      
 div[data-credit-card] { 
@@ -19,3 +19,54 @@ div[data-credit-card] {
     border-radius: 10px; 
     background-color: #5d6874; 
     } 
+
+img[data-card-type] { 
+    display: block;
+    width: 120px; 
+    height: 60px; 
+    } 
+ 
+div[data-cc-digits] { 
+    margin-top: 2em; 
+    } 
+ 
+div[data-cc-digits] input { 
+    color: #fff; 
+    font-size: 2em; 
+    line-height: 2em; 
+    border: none; 
+    background: none; 
+    margin-right: 0.5em; 
+    } 
+ 
+div[data-cc-info]{ 
+    margin-top: 1em; 
+    } 
+ 
+div[data-cc-info] input { 
+    color: #fff; 
+    font-size: 1.2em; 
+    border: none; 
+    background: none; 
+    } 
+
+div[data-cc-info] input:nth-child(2) { 
+    padding-right: 10px; 
+    float: right; 
+    } 
+ 
+button[data-pay-btn]{
+     position: fixed; 
+     width: 90%; 
+     border: 1px solid; 
+     bottom: 20px; 
+    } 
+     
+[data-cart-info], [data-credit-card] {
+     transform: scale(0.78); 
+     margin-left: -3.4em; 
+    } 
+     
+[data-cc-info] input:focus, [data-cc-digits] input:focus {
+     outline: none;
+    }    
