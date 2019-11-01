@@ -62,7 +62,7 @@ const supportedCards = {
       country: 'Ghana'
     }
   ];
-
+   // using const as directed instead or let or var
   // 
   const billHype = () => {
     const billDisplay = document.querySelector('.mdc-typography--headline4');
@@ -82,7 +82,7 @@ const supportedCards = {
   };
 
   const appState = {};
-
+ // const formatAsMoney format the users bill as a currency
   const formatAsMoney = (amount, buyerCountry) => {
       const getCurrency = ({country}) => {
           return country === buyerCountry;
@@ -100,11 +100,12 @@ const supportedCards = {
           currency: countryCurrency.currency
       })
   };
-
+    // Mark an input entry if valid or not 
   const flagIfInvalid = (field, isValid) => {
       isValid ? field.classList.remove("is-invalid") : field.classList.add("is-invalid")
   };
 
+  // check the expiry date format
   const expiryDateFormatIsValid = (field) => {
       const value = field.value;
       if (/^([1-9]|0[1-9]|1[0-2])\/[0-9]{2}$/.test(value)) { 
@@ -114,22 +115,26 @@ const supportedCards = {
           return false;
       }
   }
-
+    // using the first four digits to detect the card type
   const detectCardType = (first4Digits) => {
       const firstDigit = first4Digits[0];
       const cardType = firstDigit == 4 ? 'is-visa' : firstDigit == 5 ? 'is-mastercard' : '';
       const creditCard = document.querySelector('[data-credit-card]');
       const cardTypeField = document.querySelector('[data-card-type]');
+
+      // if card type is visa, show the visa logo and remove mastercard logo and digits using the if, else if statement
       if (cardType === 'is-visa') {
           creditCard.classList.add('is-visa');
           creditCard.classList.remove('is-mastercard');
           cardTypeField.src = supportedCards.visa;
       }
+      // if card type is mastercard, show the mastercard logo and remove that of visa card type
       else if (cardType === 'is-mastercard') {
           creditCard.classList.add('is-mastercard');
           creditCard.classList.remove('is-visa');
           cardTypeField.src = supportedCards.mastercard;
       }
+      //if none ,show the text card
       else {
           creditCard.classList.remove('is-mastercard');
           creditCard.classList.remove('is-visa');
@@ -137,7 +142,7 @@ const supportedCards = {
       }
       return cardType;
   };
-
+    //to validate the card expiry date
   const validateCardExpiryDate = () => {
       const presentDate = new Date();
       const dateField = document.querySelector('[data-cc-info] input:nth-child(2)');
@@ -152,7 +157,7 @@ const supportedCards = {
       flagIfInvalid(dateField, isValid);
       return isValid;
   };
-
+  // to check and validate the cards holder name using the server
   const validateCardHolderName = () => {
       const nameField = document.querySelector('[data-cc-info] input:nth-child(1)');
       console.log(nameField.value);
@@ -160,7 +165,7 @@ const supportedCards = {
       flagIfInvalid(nameField, isValid);
       return isValid;
   };
-
+     // validate with Luhn
   const validateWithLuhn = (digits) => {
       let value = digits.join('');
       if (/[^0-9-\s]+/.test(value)) return false;
@@ -178,7 +183,7 @@ const supportedCards = {
       }
       return (nCheck % 10) == 0;
   };
-
+        // used to validate the card number
   const validateCardNumber = () => {
       const cardInputs = appState.cardDigits.flat();
       const isValid = validateWithLuhn(cardInputs);
@@ -191,7 +196,7 @@ const supportedCards = {
       }
       return isValid;
   };
-
+        // validate Payment
   const validatePayment = () => {
       validateCardNumber();
       validateCardHolderName();
