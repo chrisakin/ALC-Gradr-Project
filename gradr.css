@@ -1,0 +1,21 @@
+body { 
+    margin: 0; 
+    padding: 1em; 
+    background-color: #fff; 
+    } 
+     
+div[data-cart-info] span {
+    display: inline-block; 
+    vertical-align: middle; 
+    } 
+     
+span.material-icons  {
+         font-size: 150px; 
+    } 
+     
+div[data-credit-card] { 
+    width: 435px; 
+    min-height: 240px; 
+    border-radius: 10px; 
+    background-color: #5d6874; 
+    } 
